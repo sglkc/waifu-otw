@@ -1,0 +1,19 @@
+{
+  "name": "nlp2d",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "browserify ./script/index.js | terser --compress --mangle > ./script/bundle.js"
+  },
+  "author": "sglkc",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "terser": "^5.16.0"
+  },
+  "dependencies": {
+    "@nlpjs/core": "^4.23.4",
+    "@nlpjs/lang-en-min": "^4.23.4",
+    "@nlpjs/nlp": "^4.23.5"
+  }
+}
