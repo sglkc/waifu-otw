@@ -3,12 +3,44 @@
   padding: 0;
 }
 
-#canvas {
+/* Loader */
+#loader {
   position: fixed;
+  z-index: 999;
+  height: 1rem;
+  width: 1rem;
+  margin: auto;
   inset: 0;
-  z-index: 1;
 }
 
+#loader:before {
+  content: 'Loading assets...';
+  padding-top: 50%;
+  position: fixed;
+  inset: 0;
+  background-color: #0000009f;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#loader:after {
+  content: '';
+  display: block;
+  font-size: 14px;
+  width: 1em;
+  height: 1em;
+  animation: spinner 2s infinite linear;
+  border-radius: 0.5em;
+  box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+@keyframes spinner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Begin */
 #container {
   position: absolute;
   display: flex;
@@ -18,8 +50,15 @@
   max-height: 100vh;
 }
 
+#canvas {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
+
 #background {
   object-fit: cover;
+  height: 100%;
   width: 600px;
   z-index: 0;
 }
@@ -120,6 +159,10 @@
 @media (max-width: 720px) {
   #container {
     flex-direction: column;
+  }
+
+  #canvas {
+    top: 0;
   }
 
   #background {

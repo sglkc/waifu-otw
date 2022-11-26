@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="assets/style.css">
   </head>
   <body>
-    <canvas id="canvas"></canvas>
     <main id="container">
-      <img id="background" src="assets/background.webp" alt="background">
+      <div id="live">
+        <canvas id="canvas"></canvas>
+        <img id="background" src="assets/background.webp" alt="background" draggable="false">
+      </div>
       <div id="chat">
         <div id="messages">
           <div class="shizuku">Hi! My name is Shizuku, nice to meet you!</div>
@@ -24,6 +26,7 @@
         </form>
       </div>
     </main>
+    <div id="loader"></div>
     <script src="src/live2d/live2d.min.js" defer></script>
     <script src="src/live2d/live2dcubismcore.min.js" defer></script>
     <script src="src/pixi/pixi.min.js" defer></script>

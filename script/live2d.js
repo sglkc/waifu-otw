@@ -1,11 +1,9 @@
 const { Live2DModel, MotionPreloadStrategy } = PIXI.live2d;
+const canvas = document.getElementById('canvas');
 
 (async function () {
-  const canvas = document.getElementById('canvas');
   const app = new PIXI.Application({
     backgroundAlpha: 0,
-    resizeTo: window,
-    antialias: true,
     view: canvas,
   });
 
@@ -15,6 +13,7 @@ const { Live2DModel, MotionPreloadStrategy } = PIXI.live2d;
   });
 
   app.stage.addChild(model);
+  window.LOADED('model');
 
   let mousestate = false;
   canvas.addEventListener('pointerenter', () => (mousestate = true));
@@ -22,6 +21,7 @@ const { Live2DModel, MotionPreloadStrategy } = PIXI.live2d;
     model.internalModel.focusController.focus(0, 0);
     mousestate = false;
   });
+
   canvas.addEventListener('pointermove', ({ clientX, clientY }) => {
     if (mousestate) model.focus(clientX, clientY);
   });
@@ -44,27 +44,34 @@ const { Live2DModel, MotionPreloadStrategy } = PIXI.live2d;
 
 function fitModel() {
   const breakpoint = {
-    sm: window.innerWidth > 720 && window.innerWidth < 1000,
-    md: window.innerWidth >= 1000
+    md: window.innerWidth > 720 && window.innerWidth < 1000,
+    lg: window.innerWidth >= 1000
   };
 
+  // set canvas and renderer before model
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  // width doesnt matter on md++
+  if (!breakpoint.md && !breakpoint.lg) app.renderer.screen.width = window.innerWidth;
+  app.renderer.screen.height = window.innerHeight;
+
   const anchor = {
-    x: breakpoint.md ? 1 : 0.5,
+    x: breakpoint.lg ? 1 : 0.5,
     y: 0.85
   };
 
   const scale = {
-    x: breakpoint.md ? 0.4 : breakpoint.sm ? 0.3 : 0.25,
-    y: breakpoint.md ? 0.475 : breakpoint.sm ? 0.375 : 0.3
+    x: breakpoint.lg ? 0.4 : breakpoint.md ? 0.35 : 0.25,
+    y: breakpoint.lg ? 0.475 : breakpoint.md ? 0.425 : 0.3
   };
 
-  const width = breakpoint.sm
-    ? model.width / 2
-    : breakpoint.md
+  const width = breakpoint.md
+    ? model.width / 2.35
+    : breakpoint.lg
     ? model.width
     : app.renderer.screen.width / 2;
 
-  const height = breakpoint.sm || breakpoint.md
+  const height = breakpoint.md || breakpoint.lg
     ? app.renderer.screen.height
     : model.height;
 

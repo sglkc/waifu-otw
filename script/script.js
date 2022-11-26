@@ -1,7 +1,17 @@
 const form = document.getElementById('form');
 const input = document.getElementById('message');
 const messages = document.getElementById('messages');
+const loader = document.getElementById('loader');
 
+/* Handle async loader things */
+const modules = [];
+
+window.LOADED = (thing) => {
+  modules.push(thing);
+  if (modules.length === 2) loader.style.display = 'none';
+}
+
+/* begin */
 const createMessage = (sender, message) => {
   const div = document.createElement('div');
 
@@ -15,6 +25,7 @@ const createMessage = (sender, message) => {
 const processMessage = (message) => {
   // random delay for "authenticity"
   const delay = Math.random() * 2000 + 300;
+
   nlp
     .process(message)
     .then((e) =>

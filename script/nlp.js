@@ -5,9 +5,12 @@ const { data } = require('./corpus.json');
 
 (async () => {
   const container = await containerBootstrap();
+
   container.use(Nlp);
   container.use(LangEn);
+
   const nlp = container.get('nlp');
+
   nlp.settings.autoSave = false;
   nlp.addLanguage('en');
   data.forEach(({ intent, utterances, answers }) => {
@@ -19,6 +22,9 @@ const { data } = require('./corpus.json');
       nlp.addAnswer('en', intent, a);
     });
   });
+
   await nlp.train();
+
   window.nlp = nlp;
+  window.LOADED('nlp');
 })();
