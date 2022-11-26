@@ -87,15 +87,15 @@
   to { transform: scale(1, 1); }
 }
 
-.shizuku, .me {
+.chiai, .me {
   padding: 1rem;
   border-radius: 1rem;
   animation-name: popup;
-  animation-duration: .25s;
+  animation-duration: .15s;
   word-break: break-word;
 }
 
-.shizuku {
+.chiai {
   margin-right: auto;
   background-color: #52525b;
   border-bottom-left-radius: 0;

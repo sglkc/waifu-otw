@@ -1,11 +1,13 @@
 const { writeFileSync } = require('fs');
 const { containerBootstrap } = require('@nlpjs/core');
 const { Nlp } = require('@nlpjs/nlp');
-const { LangEn } = require('@nlpjs/lang-en-min');
+const { LangEn } = require('@nlpjs/lang-en');
 const { LangId } = require('@nlpjs/lang-id');
+const { LangJa } = require('@nlpjs/lang-ja');
 const corpora = [
   require('./corpus-en.json'),
-  require('./corpus-id.json')
+  require('./corpus-id.json'),
+  require('./corpus-ja.json')
 ];
 
 (async () => {

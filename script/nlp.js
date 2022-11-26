@@ -1,7 +1,8 @@
 const { containerBootstrap } = require('@nlpjs/core');
 const { Nlp } = require('@nlpjs/nlp');
-const { LangEn } = require('@nlpjs/lang-en-min');
+const { LangEn } = require('@nlpjs/lang-en');
 const { LangId } = require('@nlpjs/lang-id');
+const { LangJa } = require('@nlpjs/lang-ja');
 const model = require('./nlp/model.json');
 
 (async () => {

@@ -28,9 +28,10 @@ const processMessage = (message) => {
 
   NLP
     .process(message)
-    .then((e) =>
-      setTimeout(() => createMessage('shizuku', e.answer), delay)
-    );
+    .then((e) => {
+      const answer = e.answer || "Sorry, I don't speak that language";
+      setTimeout(() => createMessage('chiai', answer), delay)
+    });
 }
 
 form.addEventListener('submit', (e) => {

@@ -2,8 +2,9 @@ lockfileVersion: 5.4
 
 specifiers:
   '@nlpjs/core': ^4.23.4
-  '@nlpjs/lang-en-min': ^4.23.4
+  '@nlpjs/lang-en': ^4.23.4
   '@nlpjs/lang-id': ^4.23.4
+  '@nlpjs/lang-ja': ^4.24.0
   '@nlpjs/nlp': ^4.23.5
   browserify: ^17.0.0
   budo: ^11.8.4
@@ -11,8 +12,9 @@ specifiers:
 
 dependencies:
   '@nlpjs/core': 4.23.4
-  '@nlpjs/lang-en-min': 4.23.4
+  '@nlpjs/lang-en': 4.23.4
   '@nlpjs/lang-id': 4.23.4
+  '@nlpjs/lang-ja': 4.24.0
   '@nlpjs/nlp': 4.23.5
 
 devDependencies:
@@ -69,10 +71,24 @@ packages:
       '@nlpjs/core': 4.23.4
     dev: false
 
+  /@nlpjs/lang-en/4.23.4:
+    resolution: {integrity: sha512-sPSP8C1miTyrpRtS2I5mQekScVAY1U/514A4VgMtwQi8Be0dc1mnR2lY3RcdWC0DhcwUxq3fXSn7JYGufjzl6Q==}
+    dependencies:
+      '@nlpjs/core': 4.23.4
+      '@nlpjs/lang-en-min': 4.23.4
+    dev: false
+
   /@nlpjs/lang-id/4.23.4:
     resolution: {integrity: sha512-KNY2C3mucG/7u8apWwzQAkjel4cMYHWtkRu2YCjdaGN0i6mior5u/3ihNdk8pfHISBW5ERgCbvG7buQEhAl4WA==}
     dependencies:
       '@nlpjs/core': 4.23.4
+    dev: false
+
+  /@nlpjs/lang-ja/4.24.0:
+    resolution: {integrity: sha512-a7bdoUKc6xZGla4yYPvQtYDDiixUKlOFrz4jdIqVeRsu4skKk5wrvvokMbfsvuGmdND4VgX+k8Cxs7zz4W76LQ==}
+    dependencies:
+      '@nlpjs/core': 4.23.4
+      kuromoji: 0.1.2
     dev: false
 
   /@nlpjs/language-min/4.22.7:
@@ -213,6 +229,12 @@ packages:
   /async-limiter/1.0.1:
     resolution: {integrity: sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==}
     dev: true
+
+  /async/2.6.4:
+    resolution: {integrity: sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==}
+    dependencies:
+      lodash: 4.17.21
+    dev: false
 
   /available-typed-arrays/1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
@@ -689,6 +711,10 @@ packages:
     engines: {node: '>=0.4', npm: '>=1.2'}
     dev: true
 
+  /doublearray/0.0.2:
+    resolution: {integrity: sha512-aw55FtZzT6AmiamEj2kvmR6BuFqvYgKZUkfQ7teqVRNqD5UE0rw8IeW/3gieHNKQ5sPuDKlljWEn4bzv5+1bHw==}
+    dev: false
+
   /duplexer2/0.1.4:
     resolution: {integrity: sha512-asLFVfWWtJ90ZyOUHMqk7/S2w2guQKxUI2itj3d92ADHhxUSbCMGi1f1cBcJ7xM1To+pE/Khbwo1yuNbMEPKeA==}
     dependencies:
@@ -1117,6 +1143,14 @@ packages:
     engines: {'0': node >= 0.2.0}
     dev: true
 
+  /kuromoji/0.1.2:
+    resolution: {integrity: sha512-V0dUf+C2LpcPEXhoHLMAop/bOht16Dyr+mDiIE39yX3vqau7p80De/koFqpiTcL1zzdZlc3xuHZ8u5gjYRfFaQ==}
+    dependencies:
+      async: 2.6.4
+      doublearray: 0.0.2
+      zlibjs: 0.3.1
+    dev: false
+
   /labeled-stream-splicer/2.0.2:
     resolution: {integrity: sha512-Ca4LSXFFZUjPScRaqOcFxneA0VpKZr4MMYCljyQr4LIewTLb3Y0IUTIsnBBsVubIeEfxeSZpSjSsRM8APEQaAw==}
     dependencies:
@@ -1127,6 +1161,10 @@ packages:
   /lodash.memoize/3.0.4:
     resolution: {integrity: sha512-eDn9kqrAmVUC1wmZvlQ6Uhde44n+tXpqPrN8olQJbttgh0oKclk+SF54P47VEGE9CEiMeRwAP8BaM7UHvBkz2A==}
     dev: true
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /map-limit/0.0.1:
     resolution: {integrity: sha512-pJpcfLPnIF/Sk3taPW21G/RQsEEirGaFpCW3oXRwH9dnFHPHNGjNyvh++rdmC2fNqEaTw2MhYJraoJWAHx8kEg==}
@@ -1986,3 +2024,7 @@ packages:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
     engines: {node: '>=0.4'}
     dev: true
+
+  /zlibjs/0.3.1:
+    resolution: {integrity: sha512-+J9RrgTKOmlxFSDHo0pI1xM6BLVUv+o0ZT9ANtCxGkjIVCCUdx9alUF8Gm+dGLKbkkkidWIHFDZHDMpfITt4+w==}
+    dev: false

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "rm ./script/bundle.js; budo ./script/nlp.js:script/bundle.js --wg **/*.{html,css,js} --live",
-    "build": "node ./script/nlp/train.js; browserify ./script/index.js | terser --compress --mangle > ./script/bundle.js",
+    "dev": "npm run train; rm ./script/bundle.js; budo ./script/nlp.js:script/bundle.js --wg **/*.{html,css,js} --live",
+    "build": "npm run train; browserify ./script/index.js | terser --compress --mangle > ./script/bundle.js",
     "train": "node ./script/nlp/train.js"
   },
   "author": "sglkc",
@@ -16,8 +16,9 @@
   },
   "dependencies": {
     "@nlpjs/core": "^4.23.4",
-    "@nlpjs/lang-en-min": "^4.23.4",
+    "@nlpjs/lang-en": "^4.23.4",
     "@nlpjs/lang-id": "^4.23.4",
+    "@nlpjs/lang-ja": "^4.24.0",
     "@nlpjs/nlp": "^4.23.5"
   }
 }
