@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "budo ./script/index.js:./script/bundle.js --wg **/*.{html,css,js} --live",
-    "build": "browserify ./script/index.js | terser --compress --mangle > ./script/bundle.js"
+    "dev": "rm ./script/bundle.js; budo ./script/nlp.js:script/bundle.js --wg **/*.{html,css,js} --live",
+    "build": "node ./script/nlp/train.js; browserify ./script/index.js | terser --compress --mangle > ./script/bundle.js",
+    "train": "node ./script/nlp/train.js"
   },
   "author": "sglkc",
   "license": "MIT",
@@ -16,6 +17,7 @@
   "dependencies": {
     "@nlpjs/core": "^4.23.4",
     "@nlpjs/lang-en-min": "^4.23.4",
+    "@nlpjs/lang-id": "^4.23.4",
     "@nlpjs/nlp": "^4.23.5"
   }
 }

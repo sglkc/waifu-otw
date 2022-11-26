@@ -13,7 +13,6 @@ const canvas = document.getElementById('canvas');
   });
 
   app.stage.addChild(model);
-  window.LOADED('model');
 
   let mousestate = false;
   canvas.addEventListener('pointerenter', () => (mousestate = true));
@@ -34,8 +33,9 @@ const canvas = document.getElementById('canvas');
   //  }
   //});
 
-  window.model = model;
-  window.app = app;
+  window.MODEL = model;
+  window.APP = app;
+  window.LOADED('model');
 
   // TODO: fitmodel on model loaded (event doesnt work idk)
   fitModel();
@@ -52,8 +52,8 @@ function fitModel() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   // width doesnt matter on md++
-  if (!breakpoint.md && !breakpoint.lg) app.renderer.screen.width = window.innerWidth;
-  app.renderer.screen.height = window.innerHeight;
+  if (!breakpoint.md && !breakpoint.lg) APP.renderer.screen.width = window.innerWidth;
+  APP.renderer.screen.height = window.innerHeight;
 
   const anchor = {
     x: breakpoint.lg ? 1 : 0.5,
@@ -66,19 +66,19 @@ function fitModel() {
   };
 
   const width = breakpoint.md
-    ? model.width / 2.35
+    ? MODEL.width / 2.35
     : breakpoint.lg
-    ? model.width
-    : app.renderer.screen.width / 2;
+    ? MODEL.width
+    : APP.renderer.screen.width / 2;
 
   const height = breakpoint.md || breakpoint.lg
-    ? app.renderer.screen.height
-    : model.height;
+    ? APP.renderer.screen.height
+    : MODEL.height;
 
-  model.anchor.set(anchor.x, anchor.y);
-  model.scale.set(scale.x, scale.y);
-  model.x = width;
-  model.y = height;
+  MODEL.anchor.set(anchor.x, anchor.y);
+  MODEL.scale.set(scale.x, scale.y);
+  MODEL.x = width;
+  MODEL.y = height;
 }
 
 window.addEventListener('resize', fitModel);

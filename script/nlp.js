@@ -1,30 +1,21 @@
 const { containerBootstrap } = require('@nlpjs/core');
 const { Nlp } = require('@nlpjs/nlp');
 const { LangEn } = require('@nlpjs/lang-en-min');
-const { data } = require('./corpus.json');
+const { LangId } = require('@nlpjs/lang-id');
+const model = require('./nlp/model.json');
 
 (async () => {
   const container = await containerBootstrap();
 
   container.use(Nlp);
   container.use(LangEn);
+  container.use(LangId);
 
   const nlp = container.get('nlp');
 
   nlp.settings.autoSave = false;
-  nlp.addLanguage('en');
-  data.forEach(({ intent, utterances, answers }) => {
-    utterances.forEach((u) => {
-      nlp.addDocument('en', u, intent);
-    });
+  nlp.import(model);
 
-    answers.forEach((a) => {
-      nlp.addAnswer('en', intent, a);
-    });
-  });
-
-  await nlp.train();
-
-  window.nlp = nlp;
+  window.NLP = nlp;
   window.LOADED('nlp');
 })();

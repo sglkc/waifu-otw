@@ -1,6 +1,6 @@
 {
   "name": "Corpus",
-  "locale": "en-US",
+  "locale": "en",
   "data": [
     {
       "intent": "agent.acquaintance",

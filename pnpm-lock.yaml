@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@nlpjs/core': ^4.23.4
   '@nlpjs/lang-en-min': ^4.23.4
+  '@nlpjs/lang-id': ^4.23.4
   '@nlpjs/nlp': ^4.23.5
   browserify: ^17.0.0
   budo: ^11.8.4
@@ -11,6 +12,7 @@ specifiers:
 dependencies:
   '@nlpjs/core': 4.23.4
   '@nlpjs/lang-en-min': 4.23.4
+  '@nlpjs/lang-id': 4.23.4
   '@nlpjs/nlp': 4.23.5
 
 devDependencies:
@@ -63,6 +65,12 @@ packages:
 
   /@nlpjs/lang-en-min/4.23.4:
     resolution: {integrity: sha512-jQ5LlrSLMtR00gYKNgz+FHw2Pt9EmNDeUC+5cl5lO17hfyGA05C1UnvsdA3Q6LJFEqnD8DDyR3PMloqIhDAA0w==}
+    dependencies:
+      '@nlpjs/core': 4.23.4
+    dev: false
+
+  /@nlpjs/lang-id/4.23.4:
+    resolution: {integrity: sha512-KNY2C3mucG/7u8apWwzQAkjel4cMYHWtkRu2YCjdaGN0i6mior5u/3ihNdk8pfHISBW5ERgCbvG7buQEhAl4WA==}
     dependencies:
       '@nlpjs/core': 4.23.4
     dev: false

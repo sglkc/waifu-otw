@@ -26,7 +26,7 @@ const processMessage = (message) => {
   // random delay for "authenticity"
   const delay = Math.random() * 2000 + 300;
 
-  nlp
+  NLP
     .process(message)
     .then((e) =>
       setTimeout(() => createMessage('shizuku', e.answer), delay)
