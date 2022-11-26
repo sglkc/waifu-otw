@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "budo ./script/index.js:./script/bundle.js --wg **/*.{html,css,js} --live",
     "build": "browserify ./script/index.js | terser --compress --mangle > ./script/bundle.js"
   },
   "author": "sglkc",
   "license": "MIT",
   "devDependencies": {
     "browserify": "^17.0.0",
+    "budo": "^11.8.4",
     "terser": "^5.16.0"
   },
   "dependencies": {

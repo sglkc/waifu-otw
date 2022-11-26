@@ -1,18 +1,30 @@
 const { Live2DModel, MotionPreloadStrategy } = PIXI.live2d;
 
 (async function () {
+  const canvas = document.getElementById('canvas');
   const app = new PIXI.Application({
     backgroundAlpha: 0,
     resizeTo: window,
     antialias: true,
-    view: document.getElementById('canvas'),
+    view: canvas,
   });
 
   const model = await Live2DModel.from('assets/live2d/shizuku.model.json', {
+    autoInteract: false,
     motionPreload: MotionPreloadStrategy.IDLE
   });
 
   app.stage.addChild(model);
+
+  let mousestate = false;
+  canvas.addEventListener('pointerenter', () => (mousestate = true));
+  canvas.addEventListener('pointerleave', () => {
+    model.internalModel.focusController.focus(0, 0);
+    mousestate = false;
+  });
+  canvas.addEventListener('pointermove', ({ clientX, clientY }) => {
+    if (mousestate) model.focus(clientX, clientY);
+  });
 
   // expressions
   // interaction
@@ -31,23 +43,28 @@ const { Live2DModel, MotionPreloadStrategy } = PIXI.live2d;
 })();
 
 function fitModel() {
-  const breakpoint = window.innerWidth > 720;
+  const breakpoint = {
+    sm: window.innerWidth > 720 && window.innerWidth < 1000,
+    md: window.innerWidth >= 1000
+  };
 
   const anchor = {
-    x: breakpoint ? 1 : 0.5,
+    x: breakpoint.md ? 1 : 0.5,
     y: 0.85
   };
 
   const scale = {
-    x: breakpoint ? 0.4 : 0.25,
-    y: breakpoint ? 0.475 : 0.3
+    x: breakpoint.md ? 0.4 : breakpoint.sm ? 0.3 : 0.25,
+    y: breakpoint.md ? 0.475 : breakpoint.sm ? 0.375 : 0.3
   };
 
-  const width = breakpoint
+  const width = breakpoint.sm
+    ? model.width / 2
+    : breakpoint.md
     ? model.width
     : app.renderer.screen.width / 2;
 
-  const height = breakpoint
+  const height = breakpoint.sm || breakpoint.md
     ? app.renderer.screen.height
     : model.height;
 
