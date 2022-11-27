@@ -5,7 +5,6 @@ const { containerBootstrap } = require('@nlpjs/core');
 const { Nlp } = require('@nlpjs/nlp');
 const { LangEn } = require('@nlpjs/lang-en');
 const { LangId } = require('@nlpjs/lang-id');
-const { LangJa } = require('@nlpjs/lang-ja');
 const corpora = [
   require('./corpus-en.json'),
   require('./corpus-id.json'),
@@ -29,7 +28,6 @@ interface data {
   container.use(Nlp);
   container.use(LangEn);
   container.use(LangId);
-  container.use(LangJa);
 
   const nlp = container.get('nlp');
 
