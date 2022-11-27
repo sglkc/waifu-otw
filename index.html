@@ -1,14 +1,15 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Chiai・WaifuOTW</title>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f4b88b">
     <meta property="og:type" content="website">
     <meta property="og:title" content="NLP2D">
     <meta property="og:site_name" content="Chat with me!">
     <meta property="og:description" content="Hello world! My name is Chiai, I'm a web-based AI with Natural Language Processing and a Live2D model!">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
   </head>
   <body>
     <main id="container">
@@ -21,7 +22,7 @@
           <div class="chiai">Hi! My name is Chiai, nice to meet you!</div>
         </div>
         <form id="form">
-          <input id="message" placeholder="say hi!" autocomplete="off">
+          <input id="message" placeholder="send a message!" autocomplete="off">
           <button id="send" type="submit">Send</button>
         </form>
       </div>
@@ -29,11 +30,6 @@
     <div id="loader"></div>
     <script src="src/live2d/live2d.min.js" defer></script>
     <script src="src/live2d/live2dcubismcore.min.js" defer></script>
-    <script src="src/pixi/pixi.min.js" defer></script>
-    <script src="src/pixi-live2d-display/index.min.js" defer></script>
-    <script src="src/pixi-live2d-display/cubism2.min.js" defer></script>
-    <script src="script/live2d.js" defer></script>
-    <script src="script/bundle.js" defer></script>
-    <script src="script/script.js"></script>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

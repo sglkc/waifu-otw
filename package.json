@@ -1,24 +1,30 @@
 {
-  "name": "nlp2d",
-  "version": "1.0.0",
+  "name": "waifu-otw",
   "private": true,
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "npm run train; rm ./script/bundle.js; budo ./script/nlp.js:script/bundle.js --wg **/*.{html,css,js} --live",
-    "build": "npm run train; browserify ./script/index.js | terser --compress --mangle > ./script/bundle.js",
-    "train": "node ./script/nlp/train.js"
+    "dev": "vite",
+    "build": "ts-node ./src/nlp/train.ts; tsc && vite build",
+    "preview": "vite preview",
+    "train": "ts-node ./src/nlp/train.ts"
   },
-  "author": "sglkc",
-  "license": "MIT",
   "devDependencies": {
-    "browserify": "^17.0.0",
-    "budo": "^11.8.4",
-    "terser": "^5.16.0"
+    "@types/node": "^18.11.9",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
   },
   "dependencies": {
     "@nlpjs/core": "^4.23.4",
     "@nlpjs/lang-en": "^4.23.4",
     "@nlpjs/lang-id": "^4.23.4",
     "@nlpjs/lang-ja": "^4.24.0",
-    "@nlpjs/nlp": "^4.23.5"
+    "@nlpjs/nlp": "^4.23.5",
+    "@pixi/app": "^6.5",
+    "@pixi/core": "^6.5",
+    "@pixi/interaction": "^6.5",
+    "@pixi/ticker": "^6.5",
+    "pixi-live2d-display": "^0.4.0",
+    "ts-node": "^10.9.1"
   }
 }

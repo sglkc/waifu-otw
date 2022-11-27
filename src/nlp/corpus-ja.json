@@ -1,0 +1,28 @@
+{
+  "name": "Corpus JA",
+  "locale": "ja",
+  "data": [
+    {
+      "intent": "ja.greetings",
+      "utterances": [
+        "こんにちは",
+        "こんばんは",
+        "おはよう",
+        "おはよ",
+        "おい"
+      ],
+      "answers": [
+        "今日も頑張ろうね",
+        "遊びに行くんですか？",
+        "は〜い"
+      ]
+    },
+    {
+      "intent": "None",
+      "utterances": [],
+      "answers": [
+        "ごめん、わかんないけど"
+      ]
+    }
+  ]
+}
