@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chiai・WaifuOTW</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4b88b">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NLP2D">
+    <meta property="og:site_name" content="Chat with me!">
+    <meta property="og:description" content="Hello world! My name is Chiai, I'm a web-based AI with Natural Language Processing and a Live2D model!">
+    <link rel="icon" type="image/png" href="favicon.png">
+  </head>
+  <body>
+    <main id="container">
+      <div id="live">
+        <canvas id="canvas"></canvas>
+        <img id="background" src="assets/background.webp" alt="background" draggable="false">
+      </div>
+      <div id="chat">
+        <div id="messages">
+          <div class="chiai">Hi! My name is Chiai, nice to meet you!</div>
+        </div>
+        <form id="form">
+          <input id="message" placeholder="send a message!" autocomplete="off">
+          <button id="send" type="submit">Send</button>
+        </form>
+      </div>
+    </main>
+    <div id="loader"></div>
+    <script src="src/live2d/live2d.min.js" defer></script>
+    <script src="src/live2d/live2dcubismcore.min.js" defer></script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
