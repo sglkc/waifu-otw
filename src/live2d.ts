@@ -5,8 +5,8 @@ import { InteractionManager } from '@pixi/interaction';
 import { Live2DModel, MotionPreloadStrategy } from 'pixi-live2d-display';
 
 // @ts-ignore
-Application.registerPlugin(TickerPlugin);
 Live2DModel.registerTicker(Ticker);
+Application.registerPlugin(TickerPlugin);
 Renderer.registerPlugin('interaction', InteractionManager);
 
 const canvas = <HTMLCanvasElement>document.getElementById('canvas');
