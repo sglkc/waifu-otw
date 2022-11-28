@@ -4,7 +4,7 @@ const form = <HTMLFormElement>document.getElementById('form');
 const input = <HTMLInputElement>document.getElementById('message');
 const messages = <HTMLElement>document.getElementById('messages');
 
-const createMessage = (sender: string, message: string) => {
+const createMessage = (sender: 'user' | 'reply', message: string) => {
   const div = document.createElement('div');
 
   div.className = sender;
@@ -22,7 +22,7 @@ const processMessage = (message: string) => {
     .process(message)
     .then((e: { answer: string }) => {
       const answer = e.answer || "Sorry, I don't speak that language";
-      setTimeout(() => createMessage('chiai', answer), delay)
+      setTimeout(() => createMessage('reply', answer), delay)
     });
 }
 
@@ -33,8 +33,10 @@ form.addEventListener('submit', (e) => {
 
   if (!message.length) return;
 
-  createMessage('me', message);
+  createMessage('user', message);
   processMessage(message);
 
   input.value = '';
 });
+
+export { createMessage, processMessage };

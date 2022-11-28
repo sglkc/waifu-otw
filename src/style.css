@@ -118,7 +118,7 @@ html, body {
   to { transform: scale(1, 1); }
 }
 
-.chiai, .me {
+.reply, .user {
   padding: 1rem;
   border-radius: 1rem;
   animation-name: popup;
@@ -126,14 +126,14 @@ html, body {
   word-break: break-word;
 }
 
-.chiai {
+.reply {
   margin-right: auto;
   background-color: #52525b;
   border-bottom-left-radius: 0;
   transform-origin: bottom left;
 }
 
-.me {
+.user {
   margin-left: auto;
   text-align: right;
   background-color: #3b82f6;

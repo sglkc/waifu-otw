@@ -14,6 +14,13 @@
         "Aku Chiai, cewe anime yang terjebak di layarmu",
         "Salam kenal, aku Chiai"
       ]
+    },
+    {
+      "intent": "None",
+      "utterances": [],
+      "answers": [
+        "Maaf, aku ga ngerti"
+      ]
     }
   ]
 }
