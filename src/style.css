@@ -55,6 +55,28 @@ html, body {
   max-height: 100vh;
 }
 
+#menu {
+  padding: 1rem;
+  position: fixed;
+  z-index: 200;
+  display: flex;
+  gap: 1rem;
+  opacity: 0.85;
+}
+
+#menu > * {
+  background-color: unset;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 2px #0000005f);
+  transition: transform .2s ease;
+}
+
+#menu > *:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
 #canvas {
   position: fixed;
   bottom: 0;
@@ -88,7 +110,7 @@ html, body {
   flex-direction: column;
   flex-grow: 1;
   gap: 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 @keyframes popup {
@@ -168,6 +190,16 @@ html, body {
 @media (max-width: 720px) {
   #container {
     flex-direction: column;
+  }
+
+  #menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #menu img {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   #canvas {

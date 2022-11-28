@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Chiai・WaifuOTW</title>
+    <base target="_blank">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f4b88b">
@@ -16,13 +17,24 @@
   <body>
     <main id="container">
       <div id="live">
+        <nav id="menu">
+          <a href="https://github.com/sglkc/waifu-otw">
+            <img src="assets/github.svg" width="40" height="40">
+          </a>
+          <button id="help">
+            <img src="assets/question.svg" width="40" height="40">
+          </button>
+          <button id="recognition">
+            <img width="40" height="40">
+          </button>
+        </nav>
         <canvas id="canvas"></canvas>
         <img id="background" src="assets/background.webp" alt="background" draggable="false">
       </div>
       <div id="chat">
-        <div id="messages">
+        <main id="messages">
           <div class="chiai">Hi! My name is Chiai, nice to meet you!</div>
-        </div>
+        </main>
         <form id="form">
           <input id="message" placeholder="send a message!" autocomplete="off">
           <button id="send" type="submit">Send</button>
@@ -30,6 +42,6 @@
       </div>
     </main>
     <div id="loader"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/index.ts"></script>
   </body>
 </html>

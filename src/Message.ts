@@ -1,30 +1,9 @@
-declare global {
-  interface Window {
-    APP: any;
-    LOADED: any;
-    MODEL: any;
-    NLP: any;
-  }
-}
-
-import './style.css';
-import './nlp.ts';
-import './live2d.ts';
+import NLP from "./NLP";
 
 const form = <HTMLFormElement>document.getElementById('form');
 const input = <HTMLInputElement>document.getElementById('message');
 const messages = <HTMLElement>document.getElementById('messages');
-const loader = <HTMLElement>document.getElementById('loader');
 
-/* Handle async loader things */
-const modules = [];
-
-window.LOADED = (thing: string) => {
-  modules.push(thing);
-  if (modules.length === 2) loader.style.display = 'none';
-}
-
-/* begin */
 const createMessage = (sender: string, message: string) => {
   const div = document.createElement('div');
 
@@ -39,7 +18,7 @@ const processMessage = (message: string) => {
   // random delay for "authenticity"
   const delay = Math.random() * 2000 + 300;
 
-  window.NLP
+  NLP
     .process(message)
     .then((e: { answer: string }) => {
       const answer = e.answer || "Sorry, I don't speak that language";
