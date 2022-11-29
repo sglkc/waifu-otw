@@ -77,6 +77,12 @@ html, body {
   transform: rotate(10deg) scale(1.1);
 }
 
+#recognition-lang {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
 #canvas {
   position: fixed;
   bottom: 0;

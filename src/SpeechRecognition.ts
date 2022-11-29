@@ -15,6 +15,7 @@ const SpeechRecognition = InitRecognition
 
 const img = <HTMLImageElement>document.querySelector('#recognition > img');
 const button = <HTMLButtonElement>document.querySelector('#recognition');
+const lang = <HTMLButtonElement>document.querySelector('#recognition-lang');
 const input = <HTMLInputElement>document.getElementById('message');
 const send = <HTMLInputElement>document.getElementById('send');
 
@@ -24,6 +25,25 @@ button.onclick = () => {
 };
 
 img.src = SpeechRecognition.unsupported ? MicMute : Mic;
+
+lang.onclick = () => {
+  if (SpeechRecognition.unsupported) return;
+
+  switch (SpeechRecognition.lang) {
+    case 'en-US':
+      SpeechRecognition.lang = 'id-ID';
+      lang.innerText = 'ID';
+      break;
+    case 'id-ID':
+      SpeechRecognition.lang = 'ja-JP';
+      lang.innerText = 'JA';
+      break;
+    case 'ja-JP':
+    default:
+      SpeechRecognition.lang = 'en-US';
+      lang.innerText = 'EN';
+  }
+}
 
 SpeechRecognition.continuous = true;
 SpeechRecognition.interimResults = true;
