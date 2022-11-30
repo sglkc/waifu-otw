@@ -1,7 +1,7 @@
 import NLP from "./NLP";
 import Live2D from './Live2D';
 
-const { expressions, model, motions } = Live2D;
+const { model, motions } = Live2D;
 const form = <HTMLFormElement>document.getElementById('form');
 const input = <HTMLInputElement>document.getElementById('message');
 const messages = <HTMLElement>document.getElementById('messages');

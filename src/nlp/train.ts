@@ -1,3 +1,4 @@
+// @ts-ignore can't exclude this from build config
 const { writeFileSync } = require('fs');
 const { join } = require('path');
 const { containerBootstrap } = require('@nlpjs/core');
