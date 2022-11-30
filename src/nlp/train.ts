@@ -1,4 +1,3 @@
-// @ts-ignore
 const { writeFileSync } = require('fs');
 const { join } = require('path');
 const { containerBootstrap } = require('@nlpjs/core');
@@ -33,21 +32,7 @@ interface data {
 
   nlp.settings.autoSave = false;
 
-  // add data manually i dont know how to do this
-  corpora.forEach(({ locale, data }: corpus) => {
-    nlp.addLanguage(locale);
-
-    data.forEach(({ intent, utterances, answers }: data) => {
-      utterances.forEach((utterance: string) => {
-        nlp.addDocument(locale, utterance, intent);
-      });
-
-      answers.forEach((answer: string) => {
-        nlp.addAnswer(locale, intent, answer);
-      });
-    });
-  });
-
+  await nlp.addCorpora(corpora);
   await nlp.train();
   writeFileSync(join(__dirname, 'model.json'), nlp.export(true));
 })();

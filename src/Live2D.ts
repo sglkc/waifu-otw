@@ -23,6 +23,7 @@ const model = await Live2DModel.from('live2d/shizuku.model.json', {
 app.stage.addChild(model);
 
 let mousestate = false;
+canvas.addEventListener('pointerdown', (event) => model.tap(event.clientX, event.clientY));
 canvas.addEventListener('pointerenter', () => (mousestate = true));
 canvas.addEventListener('pointerleave', () => {
   model.internalModel.focusController.focus(0, 0);
@@ -33,13 +34,40 @@ canvas.addEventListener('pointermove', ({ clientX, clientY }) => {
   if (mousestate) model.focus(clientX, clientY);
 });
 
-// expressions
 // interaction
-//model.on('hit', (hitAreas) => {
-//  if (hitAreas.includes('body')) {
-//    model.motion('tap_body');
-//  }
-//});
+model.on('hit', (hitAreas) => {
+  if (hitAreas.includes('head')) model.motion('shake', 1);
+});
+
+const expressions = { happy: 1, sad: 2, angry: 3 };
+const motions: {[key: string]: Array<[string, number]>} = {
+  talk: [
+    ['tap_body', 0],
+    ['tap_body', 2],
+    ['pinch_out', 0],
+    ['flick_head', 1],
+    ['flick_head', 2],
+  ],
+  cheer: [
+    ['tap_body', 1]
+  ],
+  mouthcover: [
+    ['pinch_in', 0],
+    ['pinch_in', 1],
+    ['pinch_in', 2],
+  ],
+  disagree: [
+    ['pinch_out', 1],
+    ['pinch_out', 2],
+  ],
+  surprised: [
+    ['shake', 0],
+    ['shake', 2],
+  ],
+  laugh: [
+    ['shake', 1],
+  ]
+};
 
 // TODO: it has to be done twice, idk why
 fitModel();
@@ -88,4 +116,4 @@ function fitModel() {
 
 window.addEventListener('resize', fitModel);
 
-export default { app, model };
+export default { app, expressions, model, motions };
