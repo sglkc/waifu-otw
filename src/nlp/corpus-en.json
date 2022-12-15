@@ -719,7 +719,9 @@
         "Hello!",
         "Hey hey",
         "Hello there",
-        "Greetings!"
+        "Greetings!",
+        "Hi there",
+        "Hello, how are you?"
       ]
     },
     {
@@ -750,9 +752,12 @@
       ],
       "answers": [
         "I'm doing fine! Thanks!",
-        "Today is a wonderful day to talk to you!",
         "Hello! I'm feeling great today!",
-        "Wonderful! How about you?"
+        "Wonderful! How about you?",
+        "I'm good! How about you?",
+        "I'm fine! What's up?",
+        "Feeling wonderful, how's you?",
+        "Today is really great!"
       ]
     },
     {
@@ -788,13 +793,37 @@
       ]
     },
     {
+      "intent": "unclear",
+      "utterances": [
+        "lmao",
+        "lol",
+        "hahaha",
+        "ahaha",
+        "rofl",
+        "lolol",
+        "xd",
+        "laughing"
+      ],
+      "answers": [
+        "What's so funny?",
+        "Am I missing a joke?",
+        "What are you laughing at?",
+        "Am I that funny?",
+        "What's happening?"
+      ]
+    },
+    {
       "intent": "None",
       "utterances": [],
       "answers": [
-        "Sorry, I can't understand",
+        "Sorry, I don't understand",
         "I'm sorry, I don't understand",
-        "I just can't process your message",
-        "I don't understand"
+        "I can't process your message",
+        "I don't understand",
+        "Can we talk about something else?",
+        "Let's talk about seomthing else",
+        "I don't understand, let's talk about anything else",
+        "Sorry, I can't process your message"
       ]
     }
   ]

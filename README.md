@@ -42,7 +42,7 @@ Currently, it supports English, Bahasa Indonesia, and Japanese. If you start to 
 This is possible by providing multiple data for the AI.
 
 > **Note**
-> Bahasa Indonesia and Japanese are currently incomplete, they just exist.
+> Japanese is currently incomplete, it just exist.
 
 ### Live2D
 
