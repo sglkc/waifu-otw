@@ -76,7 +76,7 @@ To get this running on your machine, you could try these steps below:
 1. Clone the repository
   ```sh
   git clone https://github.com/sglkc/waifu-otw.git
-  cd live-translate
+  cd waifu-otw
   ```
 2. Install dependencies with a package manager
   ```sh
