@@ -2,7 +2,7 @@
   <h1>Waifu On The Web</h1>
   <img src="public/assets/thumbnail.png?raw=true" alt="thumbnail">
 
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/dee7e35d-e19a-459d-8f09-dab97e2cfb00/deploy-status)](https://waifu.dakishi.me)
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/dee7e35d-e19a-459d-8f09-dab97e2cfb00/deploy-status)](https://waifu.sglkc.my.id)
   [![Issues](https://img.shields.io/github/issues/sglkc/waifu-otw.svg)](https://github.com/sglkc/waifu-otw/issues)
   [![MIT License](https://img.shields.io/github/license/sglkc/waifu-otw.svg)](LICENSE)
 
