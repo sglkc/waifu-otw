@@ -86,11 +86,11 @@ To get this running on your machine, you could try these steps below:
   ```sh
   npm run train
   ```
-5. a. Run in localhost
+4. a. Run in localhost
   ```sh
   npm run dev
   ```
-5. b. If you wish to build for production
+4. b. If you wish to build for production
   ```sh
   npm run build
   ```
